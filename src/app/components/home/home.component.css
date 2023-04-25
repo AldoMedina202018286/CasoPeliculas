@@ -1,0 +1,25 @@
+.landing {
+  text-align: center;
+  margin-top: 100px;
+}
+h1 {
+  font-size: 36px;
+  color: #333;
+  font-family: Outfit, serif;
+}
+p {
+  font-size: 18px;
+  color: #777;
+  font-family: Outfit, serif;
+}
+.center-image {
+  max-width: 300px;
+  margin: 30px auto;
+  display: block;
+}
+.my-button {
+  margin-top: 20px;
+  background-color: #ffc10a;
+  color: #3f51b5;
+  font-family: Outfit, serif;
+}
