@@ -1,1 +1,46 @@
-<p>movies works!</p>
+<div class="container">
+  <mat-table [dataSource]="dataSource" matSort class="custom-mat-table">
+
+    <!-- ID Column -->
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>ID</mat-header-cell>
+      <mat-cell *matCellDef="let movie">{{movie.id}}</mat-cell>
+    </ng-container>
+
+    <!-- Title Column -->
+    <ng-container matColumnDef="title">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Título</mat-header-cell>
+      <mat-cell *matCellDef="let movie">{{movie.title}}</mat-cell>
+    </ng-container>
+
+    <!-- Duration Column -->
+    <ng-container matColumnDef="duration">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Duración</mat-header-cell>
+      <mat-cell *matCellDef="let movie">{{movie.duration}}</mat-cell>
+    </ng-container>
+
+    <!-- Genre Column -->
+    <ng-container matColumnDef="genre">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Género</mat-header-cell>
+      <mat-cell *matCellDef="let movie">{{movie.genre}}</mat-cell>
+    </ng-container>
+
+    <!-- Acciones Column -->
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
+      <mat-cell *matCellDef="let movie">
+        <button mat-mini-fab matTooltip="Editar" color="accent" (click)="editMovie(movie.id, movie)" aria-label="Edit movie">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-mini-fab matTooltip="Eliminar" color="warn" (click)="deleteMovie(movie)" aria-label="Delete movie">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</div>
